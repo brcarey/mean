@@ -4,8 +4,8 @@
         "name": "MEAN - A Modern Stack - Development"
     },
     "facebook": {
-        "clientID": "APP_ID",
-        "clientSecret": "APP_SECRET",
+        "clientID": "181926101998586",
+        "clientSecret": "c94bd7bbe96a595cc46007dcd62fe46a",
         "callbackURL": "http://localhost:3000/auth/facebook/callback"
     },
     "twitter": {
