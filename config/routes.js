@@ -23,13 +23,14 @@ define(['async',
 
             //Setting the facebook oauth routes
             app.get('/auth/facebook', passport.authenticate('facebook', {
-                scope: ['email', 'user_about_me'],
-                failureRedirect: '/signin'
-            }), users.signin);
+                scope: ['email', 'user_about_me', 'read_stream'],
+                failureRedirect: '/#/login'
+            }));
 
             app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-                failureRedirect: '/signin'
-            }), users.authCallback);
+                successRedirect: '/#/',
+                failureRedirect: '/#/login'
+            }));
 
             //Setting the github oauth routes
             app.get('/auth/github', passport.authenticate('github', {
