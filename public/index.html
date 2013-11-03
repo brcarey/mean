@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app">
+<head>
+    <title></title>
+</head>
+<body>
+    <div ng-controller="NotificationsController" class="notifications">
+        <div ng-show="showNotifications" ng-repeat="message in notifications">
+            <div class="alert alert-{{message.type}}">
+                {{message.message}}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <div ng-view>        
+    </div>
+
+    <script data-main="main.js" src="/assets/requirejs/require.js"></script>
+</body>
+</html>

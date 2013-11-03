@@ -5,7 +5,8 @@ define(['express',
     'config/app',
     'config/db',
     'config/config',
-    'passport'], function (express, connectMongo, flash, helpers, app, db, config, passport) {
+    'passport',
+    'jade'], function (express, connectMongo, flash, helpers, app, db, config, passport) {
         var mongoStore = connectMongo(express);
         app.set('showStackError', true);
 
@@ -23,6 +24,7 @@ define(['express',
         //Setting the fav icon and static folder
         app.use(express.favicon());
         app.use(express.static(config.root + '/public'));
+        app.use('/assets', express.static(config.root + '/public/bower_components'));
 
         //Don't use logger for test env
         if (process.env.NODE_ENV !== 'test') {

@@ -3,7 +3,8 @@ define(['async',
         'passport', 
         'config/middlewares/auth',
         'app/controllers/users',
-        'app/controllers/articles'], function (async, app, passport, auth, users, articles) {
+        'app/controllers/articles',
+        'config/config'], function (async, app, passport, auth, users, articles, config) {
             //User Routes
             app.get('/signin', users.signin);
             app.get('/signup', users.signup);
@@ -75,5 +76,7 @@ define(['async',
             app.param('articleId', articles.get);
 
             //Home route
-            //app.get('/', index.render);
+            app.get('/', function (req, res) {
+                res.sendfile(config.root + '/public/index.html'); //needs to come from config or be derived somehow
+            });
 });
