@@ -1,7 +1,7 @@
 ﻿define(['angular'], function () {
     'use strict';
     var HomeController = function ($scope, $http, $location, Notifications) {
-        $http.get('/api/user').success(function (user) {
+        $http.get('/users/me').success(function (user) {
             if (user.id !== undefined) {
                 $scope.message = 'Welcome ' + user.displayName;
             } else {
